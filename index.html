@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>داستان‌های یاشار</title>
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+      direction: rtl;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin-top: 10px;
+    }
+    #story-container {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>📖 داستان‌های یاشار</h1>
+
+  <div id="admin-section">
+    <h3>➕ افزودن داستان (فقط برای یاشار)</h3>
+    <textarea id="new-story" placeholder="اینجا داستانتو بنویس..."></textarea><br>
+    <button onclick="addStory()">افزودن</button>
+  </div>
+
+  <div id="story-container">
+    <h3>📚 داستان‌ها</h3>
+    <div id="stories">
+      <p>هیچ داستانی هنوز ثبت نشده.</p>
+    </div>
+  </div>
+
+  <script>
+    const storiesDiv = document.getElementById("stories");
+
+    function addStory() {
+      const text = document.getElementById("new-story").value.trim();
+      if (text) {
+        const p = document.createElement("p");
+        p.textContent = text;
+        storiesDiv.appendChild(p);
+        document.getElementById("new-story").value = "";
+      }
+    }
+  </script>
+</body>
+</html>
